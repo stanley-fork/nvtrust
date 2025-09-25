@@ -2,23 +2,37 @@
 
 This repository provides essential resources for implementing and validating Trusted Computing Solutions on NVIDIA hardware. It focuses on attestation, a crucial aspect of ensuring the integrity and security of confidential computing environments.
 
-For more information, including documentation, white papers, and videos regarding NVIDIA Confidential Computing, please visit [NVIDIA docs](https://docs.nvidia.com/confidential-computing/index.html).
+## Tools and Components
+
+This repository includes the following attestation tools and utilities:
+
+### Guest Tools
+
+- **[Attestation SDK (Python)](guest_tools/attestation_sdk/README.md)** - A comprehensive Python SDK providing easy-to-use APIs for implementing GPU and NVSwitch attestation capabilities into your applications. Supports both local and remote attestation workflows.
+
+- **[Local GPU Verifier](guest_tools/gpu_verifiers/local_gpu_verifier/README.md)** - A standalone tool for local GPU attestation verification. *Note: This tool is now integrated into the Attestation SDK. Please use the Attestation SDK for GPU attestation workflows.*
+
+- **[PPCIE Verifier](guest_tools/ppcie-verifier/README.md)** - Protected PCIe verifier for multi-GPU confidential computing setups where all GPUs are in PPCIE mode, enabling plain-text NVLink traffic while preserving confidential VM security.
+
+### Host Tools
+
+- **[Host Tools](host_tools/README.md)** - Utilities for configuring GPU Confidential Computing modes and sample KVM scripts for launching Confidential VMs from the host.
 
 ## Getting Started with Attestation
 
-To begin using NVIDIA GPU attestation, please refer to [this documentation](./guest_tools/README.md). This guide will walk you through:
+To get started and learn more about NVIDIA Attestation, refer to the [NVIDIA Attestation docs](https://docs.nvidia.com/attestation/).
 
-- Setting up the necessary environment
-- Implementing attestation in your applications
-- Validating the attestation process
+### Quick Start and Deployment Guides
 
-## Confidential Computing
+- **[Quick Start Guide](https://docs.nvidia.com/attestation/quick-start-guide/latest/getting_started.html)** - Get up and running quickly with NVIDIA Attestation
+- **[Deployment Guide](https://docs.nvidia.com/attestation/poc-to-production/latest/deployment_guide.html)** - Comprehensive guide for deploying attestation from POC to production
 
-NVIDIA Confidential Computing offers a solution for securely processing data and code in use, preventing unauthorized users from both access and modification. When running AI training or inference, the data and the code must be protected. Often the input data includes personally identifiable information (PII) or enterprise secrets, and the trained model is highly valuable intellectual property (IP). Confidential computing is the ideal solution to protect both AI models and data.
+### SDK and CLI Documentation
 
-NVIDIA is at the forefront of confidential computing, collaborating with CPU partners, cloud providers, and independent software vendors (ISVs) to ensure that the change from traditional, accelerated workloads to confidential, accelerated workloads will be smooth and transparent.
-
-For more information, including documentation, white papers, and videos regarding the Hopper Confidential Computing story, please visit [NVIDIA docs](https://docs.nvidia.com/confidential-computing/index.html).
+- **[Attestation SDK (Python) Documentation](https://docs.nvidia.com/attestation/attestation-client-tools-sdk/latest/sdk_introduction.html)** - Complete documentation for the Python SDK
+- **[Attestation SDK (C++) Documentation](https://docs.nvidia.com/attestation/nv-attestation-sdk-cpp/latest/sdk-c/introduction.html)** - Complete documentation for the C++ SDK
+- **[Attestation CLI Documentation](https://docs.nvidia.com/attestation/nv-attestation-sdk-cpp/latest/sdk-cli/introduction.html)** - Command-line interface documentation
+- **[PPCIE Verifier Documentation](https://docs.nvidia.com/attestation/attestation-client-tools-ppcie/latest/ppcie_introduction.html)** - Documentation for Protected PCIe attestation
 
 ## Contributing
 
@@ -30,4 +44,5 @@ This repository is licensed under Apache License v2.0 except where otherwise not
 
 ## Support
 
-For issues or questions, please [file a bug](https://github.com/NVIDIA/nvtrust/issues). For additional support, contact us at [attestation-support@nvidia.com](mailto:attestation-support@nvidia.com)
+- For issues or questions, please [file a bug](https://github.com/NVIDIA/nvtrust/issues). 
+- For additional support, contact us at [attestation-support@nvidia.com](mailto:attestation-support@nvidia.com)
