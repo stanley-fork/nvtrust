@@ -158,6 +158,8 @@ def main():
         # nonce is generated / set if cc_admin is run as a standalone-tool
         if arguments_as_dictionary["test_no_gpu"]:
             nonce = BaseSettings.NONCE
+        elif arguments_as_dictionary["nonce"]:
+            nonce = arguments_as_dictionary["nonce"]
         else:
             info_log.info("Generating nonce in the local GPU Verifier ..")
             nonce = CcAdminUtils.generate_nonce(BaseSettings.SIZE_OF_NONCE_IN_BYTES).hex()
